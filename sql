@@ -16,3 +16,10 @@ Fechar
 
 CREATE TABLE `projeto integrador`.`informaçoes` ( `Id_informacao` SMALLINT(20) NOT NULL , `quantidade_de_veiculos` INT(15) NOT NULL , `quantidade_de_vendas` INT(15) NOT NULL ) ENGINE = InnoDB; 
  
+ALTER TABLE `cadastro de clientes` DROP `Cidade`;
+ALTER TABLE `cadastro de clientes` DROP `Bairro`;
+ALTER TABLE `cadastro de clientes` DROP `Estado`;
+ALTER TABLE `cadastro de clientes` DROP `Cep`;
+
+Pré-visualizar SQL
+CREATE TABLE `projeto integrador`.`endereco` ( `id_endereco` SMALLINT(40) NULL DEFAULT NULL , `Rua` CHAR(30) NOT NULL , `Numero` INT(10) NOT NULL , `Bairro` CHAR(20) NOT NULL , `Cep` INT(8) NOT NULL , `Cidade` CHAR(15) NOT NULL , `Estado` CHAR(15) NOT NULL , PRIMARY KEY (`id_endereco`)) ENGINE = InnoDB;
