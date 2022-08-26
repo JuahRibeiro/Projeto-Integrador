@@ -23,3 +23,23 @@ ALTER TABLE `cadastro de clientes` DROP `Cep`;
 
 Pré-visualizar SQL
 CREATE TABLE `projeto integrador`.`endereco` ( `id_endereco` SMALLINT(40) NULL DEFAULT NULL , `Rua` CHAR(30) NOT NULL , `Numero` INT(10) NOT NULL , `Bairro` CHAR(20) NOT NULL , `Cep` INT(8) NOT NULL , `Cidade` CHAR(15) NOT NULL , `Estado` CHAR(15) NOT NULL , PRIMARY KEY (`id_endereco`)) ENGINE = InnoDB;
+
+CREATE TABLE `projeto integrador`.`telefone` ( `Id_telefone` SMALLINT NOT NULL AUTO_INCREMENT , `Id_clientes` INT NOT NULL , `numero` MEDIUMINT NOT NULL , PRIMARY KEY (`Id_telefone`)) ENGINE = InnoDB;
+
+ ALTER TABLE `clientes` ADD `nome` CHAR(50) NOT NULL AFTER `Id_clientes`;
+ALTER TABLE `clientes` ADD `data_nascimento` DATE NOT NULL AFTER `Id_clientes`;
+ALTER TABLE `clientes` ADD `cpf` CHAR(11) NOT NULL AFTER `data_nascimento`;
+ALTER TABLE `clientes` ADD `email` CHAR(50) NOT NULL AFTER `cpf`;
+CREATE TABLE `projeto integrador`.`endereço` ( `Id_clientes` SMALLINT NOT NULL AUTO_INCREMENT , `Id_endereço` SMALLINT NOT NULL , `cep` INT(8) NOT NULL , `cidade` CHAR(50) NOT NULL , `estado` CHAR(50) NOT NULL , `bairro` CHAR(50) NOT NULL , PRIMARY KEY (`Id_clientes`)) ENGINE = InnoDB;
+ALTER TABLE `carros` CHANGE `Id_carro` `id_carro` INT(11) NOT NULL;
+ALTER TABLE `clientes` CHANGE `Id_clientes` `id_clientes` INT(11) NOT NULL;
+ALTER TABLE `endereço` CHANGE `Id_clientes` `id_clientes` SMALLINT(6) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `endereço` CHANGE `Id_endereço` `id_endereço` SMALLINT(6) NOT NULL;
+ALTER TABLE `imagens` CHANGE `Id_imagem` `id_imagem` INT(11) NOT NULL;
+ALTER TABLE `telefone` CHANGE `Id_telefone` `id_telefone` SMALLINT(6) NOT NULL AUTO_INCREMENT
+ALTER TABLE `telefone` CHANGE `Id_clientes` `id_clientes` INT(11) NOT NULL;
+ALTER TABLE `usuários do adm` CHANGE `Id_ADM` `id_ADM` INT(11) NOT NULL;
+ALTER TABLE `clientes` CHANGE `cpf` `cpf` INT(11) NOT NULL;
+
+ALTER TABLE `usuários do adm` ADD `nome` CHAR(50) NOT NULL AFTER `id_ADM`, ADD `cpf` INT NOT NULL AFTER `nome`;
+ALTER TABLE `carros` ADD `descrição` CHAR(100) NOT NULL AFTER `id_carro`;
